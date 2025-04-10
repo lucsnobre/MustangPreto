@@ -45,7 +45,7 @@ const updateGenero = async function (genero) {
 // Deletar gênero
 const deleteGenero = async function (id) {
     try {
-        let sql = `DELETE FROM tb_genero WHERE id_genero = ${id}`;
+        let sql = `DELETE FROM tb_genero WHERE id = ${id}`;
         let result = await prisma.$executeRawUnsafe(sql);
         return result ? true : false;
     } catch (error) {
@@ -57,7 +57,7 @@ const deleteGenero = async function (id) {
 // Listar todos os gêneros
 const selectAllGeneros = async function () {
     try {
-        let sql = `SELECT * FROM tb_genero ORDER BY id_genero ASC`;
+        let sql = `SELECT * FROM tb_genero ORDER BY id ASC`;
         let result = await prisma.$queryRawUnsafe(sql);
         return result && result.length > 0 ? result : false;
     } catch (error) {
@@ -69,7 +69,7 @@ const selectAllGeneros = async function () {
 // Buscar gênero por ID
 const selectByIdGenero = async function (id_genero) {
     try {
-        let sql = `SELECT * FROM tb_genero WHERE id_genero = ${id_genero}`;
+        let sql = `SELECT * FROM tb_genero WHERE id = ${id_genero}`;
         let result = await prisma.$queryRawUnsafe(sql);
         return result && result.length > 0 ? result : false;
     } catch (error) {
